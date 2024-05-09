@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "harmony-hybrid-vue-demo",
+  "appid": "testAppId",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
