@@ -15,7 +15,7 @@ const App = createApp({
     console.log('ES getEnv', Taro.getEnv)
     console.log('CommonJs getEnv', Taro2.getEnv)
 
-    console.log('App onShow.', Taro.setGlobalDataPlugin)
+    console.log('ES setGlobalDataPlugin', Taro.setGlobalDataPlugin)
     console.log('requirePlugin', requirePlugin)
   },
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
