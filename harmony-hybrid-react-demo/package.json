@@ -30,6 +30,8 @@
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "dev:harmony-hybrid": "npm run build:harmony-hybrid -- --watch",
+    "clear": "rm -rf node_modules && pnpm install",
+    "clear:harmony-hybrid": "pnpm run clear && pnpm run dev:harmony-hybrid",
     "test": "jest"
   },
   "browserslist": [

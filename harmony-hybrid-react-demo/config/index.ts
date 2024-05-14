@@ -69,6 +69,12 @@ export default defineConfig(async (merge, { command, mode }) => {
         filename: 'js/[name].[hash:8].js',
         chunkFilename: 'js/[name].[chunkhash:8].js'
       },
+      router: {
+        customRoutes: {
+          '/redirect/pages/list/index':'/pages/mps/main/list/index', // 重定向配置
+          '/pages/mps/main/list/index': '/forward/pages/list/index' // 转发配置
+        }
+      },
       miniCssExtractPluginOption: {
         ignoreOrder: true,
         filename: 'css/[name].[hash].css',

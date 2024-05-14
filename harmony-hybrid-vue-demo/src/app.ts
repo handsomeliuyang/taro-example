@@ -5,7 +5,7 @@ import Taro, { requirePlugin } from "@tarojs/taro";
 const Taro2 = require("@tarojs/taro")
 
 const App = createApp({
-  onShow (options) {
+  onShow () {
     console.log('ES Taro', Taro)
     console.log('CommonJs Taro', Taro2)
 
