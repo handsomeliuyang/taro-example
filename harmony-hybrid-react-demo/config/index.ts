@@ -16,7 +16,7 @@ export default defineConfig(async (merge, { command, mode }) => {
       828: 1.81 / 2
     },
     sourceRoot: 'src',
-    outputRoot: 'dist',
+    outputRoot: 'dist/spa/main',
     plugins: [],
     defineConstants: {
     },
@@ -63,7 +63,7 @@ export default defineConfig(async (merge, { command, mode }) => {
       }
     },
     h5: {
-      publicPath: '/',
+      publicPath: '/spa/main',
       staticDirectory: 'static',
       output: {
         filename: 'js/[name].[hash:8].js',
