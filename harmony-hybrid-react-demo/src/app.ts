@@ -2,12 +2,9 @@ import { PropsWithChildren } from 'react'
 import Taro, { useLaunch } from '@tarojs/taro'
 import './app.css'
 
-function App({ children }: PropsWithChildren<any>) {
-
-  useLaunch(() => {
-    console.log('App launched.')
-
-    let url =
+// @ts-ignore
+function testRequest(){
+  let url =
       'https://tracklog.58.com/wx/click/empty.js.gif?wxid=wxc97b21c63d084d92' +
       '&uid=weappharmonyadb873f1848d46ce8c6894f98a3673c3' +
       '&loginUid=undefined' +
@@ -18,20 +15,56 @@ function App({ children }: PropsWithChildren<any>) {
       '&thirdKey=aloHjAxMwz5BMNZF4ERfr5BFcYVhuTKwzriW2UNpFhnnj7PcuFagPFp9oeNMduA1&appCode=10'
 
 
-    Taro.request({
-      url: url,
-      method: 'GET',
-      data: {},
-      header: {
-      },
-      success(res) {
-        console.log('request(tracklog)', res.data);
-      },
-      fail: msg => {
-        console.error('request(tracklog)', msg);
-      },
+  Taro.request({
+    url: url,
+    method: 'GET',
+    data: {},
+    header: {
+    },
+    success(res) {
+      console.log('request(tracklog)', res.data);
+    },
+    fail: msg => {
+      console.error('request(tracklog)', msg);
+    },
     // @ts-ignore
-    }, false);
+  }, false);
+}
+
+function testStorage(){
+  const test = Taro.getStorageSync('test')
+  console.log('liuyang1111', 'Taro.getStorageSync=为空' + test)
+
+  Taro.setStorageSync('test555', 'testValue' + Math.random())
+
+  console.log('liuyang1111', 'Taro.getStorageSync=testValue+随机数', Taro.getStorageSync('test555'))
+
+  Taro.getStorage({
+    key: 'test2',
+    success: function (res) {
+      console.log('liuyang1111', 'Taro.getStorage=为空', res.data)
+    }
+  })
+  Taro.setStorage({
+    key:"test2",
+    data:"test2" + Math.random()
+  })
+  Taro.getStorage({
+    key: 'test2',
+    success: function (res) {
+      console.log('liuyang1111', 'Taro.getStorage=test2+随机数', res.data)
+    }
+  })
+
+}
+
+function App({ children }: PropsWithChildren<any>) {
+
+  useLaunch(() => {
+    console.log('App launched.')
+
+    testStorage();
+
   })
 
   // children 是将要会渲染的页面
