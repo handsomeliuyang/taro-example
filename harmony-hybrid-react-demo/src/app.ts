@@ -31,6 +31,7 @@ function testRequest(){
   }, false);
 }
 
+// @ts-ignore
 function testStorage(){
   const test = Taro.getStorageSync('test')
   console.log('liuyang1111', 'Taro.getStorageSync=为空' + test)
@@ -63,7 +64,9 @@ function App({ children }: PropsWithChildren<any>) {
   useLaunch(() => {
     console.log('App launched.')
 
-    testStorage();
+    // testStorage();
+
+    testRequest()
 
   })
 
